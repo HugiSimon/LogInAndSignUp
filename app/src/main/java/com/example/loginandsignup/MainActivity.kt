@@ -1,5 +1,6 @@
 package com.example.loginandsignup
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.loginandsignup.fragment.LogIn
@@ -21,5 +22,10 @@ class MainActivity : AppCompatActivity() {
     fun signup() {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.flMain, SignUp(), "signup").commit()
+    }
+
+    fun changeActivity() {
+        val intent = Intent(this, ListUser::class.java)
+        startActivity(intent)
     }
 }

@@ -1,5 +1,6 @@
 package com.example.loginandsignup.fragment
 
+import android.content.Intent
 import android.graphics.drawable.TransitionDrawable
 import android.os.Bundle
 import android.text.TextUtils
@@ -11,6 +12,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
+import com.example.loginandsignup.ListUser
 import com.example.loginandsignup.MainActivity
 import com.example.loginandsignup.R
 import com.example.loginandsignup.viewModels.ConnectionViewModel
@@ -36,6 +38,7 @@ class LogIn : Fragment() {
         val etPassword = view.findViewById<TextView>(R.id.etPassword)
         val clPseudo = view.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.clPseudo)
         val clPassword = view.findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.clPassword)
+        val btnLogIn = view.findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.btnLogIn)
 
         val transitionDrawable = ContextCompat.getDrawable(requireContext(),
             R.drawable.transition_et
@@ -94,6 +97,10 @@ class LogIn : Fragment() {
                 }
             }
         }
+
+        btnLogIn.setOnClickListener{
+            (activity as MainActivity).changeActivity()
+        }
     }
 
     fun allChampsAreFilled() {
@@ -104,7 +111,7 @@ class LogIn : Fragment() {
         btnLogIn?.background = transitionDrawableActive
         transitionDrawableActive.startTransition(200)
 
-        btnLogIn?.isClickable = true
+        btnLogIn?.isEnabled = true
     }
 
     fun notAllChampsAreFilled() {
@@ -115,6 +122,6 @@ class LogIn : Fragment() {
         btnLogIn?.background = transitionDrawableDesac
         transitionDrawableDesac.startTransition(200)
 
-        btnLogIn?.isClickable = false
+        btnLogIn?.isEnabled = false
     }
 }
