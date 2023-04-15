@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeActivity() {
-        val intent = Intent(this, ListUser::class.java)
+        val intent = Intent(this, ListUserActivity::class.java)
         startActivity(intent)
     }
 }

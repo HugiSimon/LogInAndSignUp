@@ -9,6 +9,8 @@
         android:layout_width="92dp"
         android:layout_height="92dp"
         android:layout_margin="8dp"
+        android:background="@drawable/round_outline"
+        android:clipToOutline="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,6 +37,24 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvFirstName"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
+
+    <TextView
+        android:id="@+id/tvMoreInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="-2dp"
+        android:text="@string/more_info"
+        android:textSize="14sp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:textColor="#034bcb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivUserImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvFirstName"
         app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView

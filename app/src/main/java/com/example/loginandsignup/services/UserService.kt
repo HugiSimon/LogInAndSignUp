@@ -1,10 +1,13 @@
 
+import com.example.appelwebexample.`class`.SignInRequest
 import com.example.appelwebexample.`class`.User
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 private const val BASE_URL =
@@ -44,6 +47,9 @@ interface UserApiService {
      */
     @GET("USER/{id}")
     suspend fun getUser(@Path("id") id: String) : User
+
+    @POST("LOGIN")
+    suspend fun signIn(@Body request: SignInRequest) : String
 }
 
 /**

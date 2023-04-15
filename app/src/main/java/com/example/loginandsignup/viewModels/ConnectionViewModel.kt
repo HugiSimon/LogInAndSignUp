@@ -22,8 +22,11 @@ class ConnectionViewModel : ViewModel() {
     fun setPassword(data: String) {
         if (!TextUtils.isEmpty(data) && !TextUtils.equals(data, password.toString())) {
             password.value = hashPassword(data)
-            Log.d("password", password.value.toString())
         }
+    }
+
+    fun getPassword(): String {
+        return password.value.toString()
     }
 
     private fun hashPassword(rawPassword: String): String {

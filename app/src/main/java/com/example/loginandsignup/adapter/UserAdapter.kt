@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.apirestcall.models.UserModel
+import com.example.loginandsignup.ListUserActivity
 import com.example.loginandsignup.R
-import java.net.URL
 
 class UserAdapter (var users: ArrayList<UserModel>) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
@@ -37,6 +37,15 @@ class UserAdapter (var users: ArrayList<UserModel>) : RecyclerView.Adapter<UserA
 
             Glide.with(itemView).load(user.LinkPhoto).into(ivUserImage)
         }
-    }
 
+        init {
+            val tvMoreInfo = itemView.findViewById<TextView>(R.id.tvMoreInfo)
+            tvMoreInfo.setOnClickListener {
+                val pos = adapterPosition
+                if (pos != RecyclerView.NO_POSITION) {
+                    (itemView.context as ListUserActivity).moreInfo(pos+1)
+                }
+            }
+        }
+    }
 }

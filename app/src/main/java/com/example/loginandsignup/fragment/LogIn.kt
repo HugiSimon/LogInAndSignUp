@@ -1,9 +1,9 @@
 package com.example.loginandsignup.fragment
 
-import android.content.Intent
 import android.graphics.drawable.TransitionDrawable
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +12,10 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
-import com.example.loginandsignup.ListUser
 import com.example.loginandsignup.MainActivity
 import com.example.loginandsignup.R
 import com.example.loginandsignup.viewModels.ConnectionViewModel
+import com.example.loginandsignup.viewModels.UsersViewModel
 
 class LogIn : Fragment() {
     private lateinit var connectionVW: ConnectionViewModel
@@ -99,6 +99,13 @@ class LogIn : Fragment() {
         }
 
         btnLogIn.setOnClickListener{
+            val auth = ViewModelProvider(this)[UsersViewModel::class.java]
+            auth.signIn(etPseudo.text.toString(), connectionVW.getPassword())
+            Log.d("pre auth", connectionVW.getPassword())
+
+            auth.auth.observe(viewLifecycleOwner) {
+                Log.d("auth", it.toString())
+            }
             (activity as MainActivity).changeActivity()
         }
     }
