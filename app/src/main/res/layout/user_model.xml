@@ -48,7 +48,6 @@
         android:text="@string/more_info"
         android:textSize="14sp"
         android:focusable="true"
-        android:focusableInTouchMode="true"
         android:clickable="true"
         android:textStyle="bold"
         android:textColor="#034bcb"

@@ -1,5 +1,6 @@
 package com.example.loginandsignup
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -52,9 +53,8 @@ class ListUserActivity : AppCompatActivity() {
     }
 
     fun moreInfo(id: Int) {
-        usersViewModel.getUser(id.toString())
-        usersViewModel.currentUser.observe(this) {
-            Log.d("MoreInfo", it.toString())
-        }
+        val intent = Intent(this, MoreInfo::class.java)
+        intent.putExtra("id", id)
+        startActivity(intent)
     }
 }
