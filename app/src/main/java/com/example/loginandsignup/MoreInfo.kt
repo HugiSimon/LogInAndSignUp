@@ -45,7 +45,26 @@ class MoreInfo : AppCompatActivity() {
                 tvFirstName.text = user.firstname
                 tvLastName.text = user.lastname
                 tvEmail.text = user.email
-                tvBirthday.text = user.birthdate
+
+                var birthday = ""
+                birthday += when (user.birthdate.substring(5,7).toInt()) {
+                    1 -> "Jan."
+                    2 -> "Feb."
+                    3 -> "Mar."
+                    4 -> "Apr."
+                    5 -> "May"
+                    6 -> "Jun."
+                    7 -> "Jul."
+                    8 -> "Aug."
+                    9 -> "Sep."
+                    10 -> "Oct."
+                    11 -> "Nov."
+                    12 -> "Dec."
+                    else -> "Error"
+                }
+                birthday += " ${user.birthdate.substring(8,10)}, ${user.birthdate.substring(0,4)} at ${user.birthdate.substring(11,16)}"
+                tvBirthday.text = birthday
+
                 tvGender.text = user.genre
                 tvStreet.text = user.address.street
                 tvCity.text = user.address.city
